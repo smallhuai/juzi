@@ -4,4 +4,4 @@ class Global {
         return px/baseSize+"rem";
     }
 }
-export default new Global;
+export default new Global();

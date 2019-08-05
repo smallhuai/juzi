@@ -3,6 +3,9 @@ import { createGlobalStyle } from "styled-components";
 import global from "@/core/global"
 let r = global.r;
 export const GlobalStyle = createGlobalStyle`
+*{
+    box-sizing:border-box;
+}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -59,6 +62,7 @@ export const ButtonCity = styled.div`
 `
 /* 城市选择部分 */
 export const CityWrap = styled.div`
+    width:100%;
     position:fixed;
     top:0;
     left:0;
@@ -102,9 +106,29 @@ export const CityWrap = styled.div`
         box-sizing:border-box;
     }
 `
+/* 轮播部分 */
+export const BannerBox = styled.div`
+    width:100%;
+    height:auto;
+    .slider-list{
+        height:${r(198)} !important;
+        li{
+            height:100%  !important;
+            a{
+                display:block;
+                height:100%  !important;  
+                img{
+                    display:block;
+                    height:100%  !important; 
+                }
+            }
+        }
+    }
+`
 /* 演唱形式分类 */
 export const Operaclass = styled.div`
     height:${r(140)};
+    width:100%;
     display:flex;
     background:#fff;
     justify-content: space-between;
@@ -113,6 +137,7 @@ export const Operaclass = styled.div`
         display:block;
         height:${r(80)};
         width:${r(60)};
+        color:#333;
         div{
             height:${r(51)};
             width:${r(51)};

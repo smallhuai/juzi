@@ -7,13 +7,14 @@ const action = (val, type) => {
         val   //res
     }
 }
-export const loadCityDataAsync = (dispatch) => {
+export const loadCityDataAsync = (dispatch,currentCity) => {
     //获取城市列表
     return () => {
         request({
             method: "get",
             url: "/city/city/getSortedCityList?version=6.0.1&referer=1"
-        }).then((res) => {
+        }).then((res) => {     
+            res.currentCity = currentCity  
             dispatch(action(res, GET_INDEX_CITY));
         })
     }
@@ -33,7 +34,6 @@ export const loadIndexData = (dispatch, currentCity) => {
                 referer: "1"
             }
         }).then((res) => {
-            res.currentCity = currentCity           
             dispatch(action(res, GET_INDEX_DATA));
         })
     }

@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import { CityWrap, ButtonCity, Operaclass } from "./styled"
 import { Carousel, WingBlank, TabBar } from 'antd-mobile';
-
 // 城市的组件
 export class City extends PureComponent {
     render() {
