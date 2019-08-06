@@ -4319,6 +4319,11 @@ fragment-cache@^0.2.1:
   dependencies:
     map-cache "^0.2.2"
 
+freezer-js@^0.14.1:
+  version "0.14.1"
+  resolved "https://registry.yarnpkg.com/freezer-js/-/freezer-js-0.14.1.tgz#c033f88e740ab84437f758303241578ff662b01c"
+  integrity sha512-nOvD6wkSOyr8MsUnCbp9R/zEVZtEuHi30DijKRofjgxzE3fOe0kXuCKlAmiiv7N8oX+Ms3mIAqMfsujWF/WqCw==
+
 fresh@0.5.2:
   version "0.5.2"
   resolved "https://registry.npm.taobao.org/fresh/download/fresh-0.5.2.tgz#3d8cadd90d976569fa835ab1f8e4b23a105605a7"
@@ -8482,6 +8487,13 @@ react-scripts@3.0.1:
     workbox-webpack-plugin "4.2.0"
   optionalDependencies:
     fsevents "2.0.6"
+
+react-stores@^2.11.5:
+  version "2.11.5"
+  resolved "https://registry.yarnpkg.com/react-stores/-/react-stores-2.11.5.tgz#6004664c8c64a9a3fe5a612ec1a535520b99dc4e"
+  integrity sha512-EBzikg+cmyC8VpBfEwTvsl/1SHJNYHUJPTcOMtaY9gmXvHbAix3l9KZ4ndvGoNkkc5RNSv+IzUSJ3NH5QDmCZQ==
+  dependencies:
+    freezer-js "^0.14.1"
 
 react-tween-state@^0.1.5:
   version "0.1.5"

@@ -7,8 +7,6 @@ import {Adlist} from "./ad_list";
 import {OparaCart} from "./operationCard"
 class ClassifyHome extends PureComponent {
     render() {
-        console.log(this.props.indexTopData.toJS());
-        console.log(this.props.indexTopData.get("operation_list"));
         return (
             <Fragment>
                 {/* 轮播组件 */}

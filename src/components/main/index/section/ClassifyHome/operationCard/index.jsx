@@ -6,7 +6,6 @@ let r = global.r;
 export class OparaCart extends PureComponent {
     render() {
         if (this.props.operation_list) {
-            console.log(this.props.operation_list.toJS());
             let operation_listOne = this.props.operation_list.toJS().slice(0, 2);
             let operation_listTwo = this.props.operation_list.toJS().slice(2)
             return (
@@ -17,7 +16,7 @@ export class OparaCart extends PureComponent {
                                 return (
                                     <a href={`${item.url}`} key={index}>
                                         <div>
-                                            <p> {item.name}</p>
+                                            <p className={'cheng'}> {item.name}</p>
                                             <div dangerouslySetInnerHTML={{ __html: item.describe }} >
                                             </div>
                                         </div>
@@ -35,7 +34,7 @@ export class OparaCart extends PureComponent {
                                 return (
                                     <a href={`${item.url}`} key={index}>
                                         <div>
-                                            <p> {item.name}</p>
+                                            <p className={'cheng'}> {item.name}</p>
                                             <p dangerouslySetInnerHTML={{ __html: item.describe }} >
                                             </p>
                                         </div>
@@ -73,11 +72,18 @@ const OparaCartList = styled.div`
             background-color: #fff;
             display:block; 
             padding-left:${r(8)};
+            color:#999;
            div{
-               p{
-                color:#333 !important;
+               .cheng{
+                color:#111 !important;
+                font-size:${r(16)};
+                padding-bottom:${r(4)};
+                text-align:center;
                }
-                
+               .c_ff6{
+                    font-size:${r(12)};
+                    color:#f1b441;
+               } 
             }
 
             .imgs{
@@ -104,6 +110,7 @@ const OparaCartList = styled.div`
         display:flex;
         flex-direction:column;
         justify-content:center;
+        align-items:center;
         width:${r(106)};
         height:${r(106)}
       }

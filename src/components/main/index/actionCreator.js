@@ -1,6 +1,7 @@
 import request from "@/core/http/http"
 export const GET_INDEX_CITY = "index/get_index_city";
 export const GET_INDEX_DATA = "index/get_index_data";
+export const GET_HOT_RECOMEND ="index/get_index_RECOMMEND"
 const action = (val, type) => {
     return {
         type,  //GET_INDEX_CITY = "index/get_index_city";
@@ -38,4 +39,16 @@ export const loadIndexData = (dispatch, currentCity) => {
         })
     }
 }
-
+// 热门演出的接口
+// https://api.juooo.com/home/index/getHotsRecommendList?city_id=0&version=6.0.3&referer=2;
+export const loadRecommendDataAsync=(dispatch,currentCity)=>{
+    return()=>{
+        request({
+            method:"get",
+            url:"home/index/getHotsRecommendList",
+            params:{
+                
+            }
+        })
+    }
+}

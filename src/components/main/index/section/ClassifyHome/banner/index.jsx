@@ -17,18 +17,14 @@ export class Banner extends PureComponent {
     }
     render() {
         if (this.props.slide_list) {
-            console.log(this.props.slide_list.toJS());
             if (this.props.slide_list.size !== 0) {
-                console.log(this.props.slide_list.toJS());
-                
+            //    console.log(this.props.slide_list.toJS());   
                 return (
                     <BannerBox>
                         <WingBlank>
                             <Carousel
                                 autoplay={true}
                                 infinite
-                                beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-                                afterChange={index => console.log('slide to', index)}
                             >
                                 {this.props.slide_list.map((item,val) => (
                                     <a
@@ -39,7 +35,7 @@ export class Banner extends PureComponent {
                                         <img
                                             src={`${item.get("image_url")}`}
                                             alt=""
-                                            style={{ width: '100%', verticalAlign: 'top' }}
+                                            style={{ width: '100%', verticalAlign: 'top',height:198 }}
                                             onLoad={() => {
                                                 // fire window resize event to change height
                                                 window.dispatchEvent(new Event('resize'));

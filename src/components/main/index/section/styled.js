@@ -108,7 +108,7 @@ export const CityWrap = styled.div`
 `
 /* 轮播部分 */
 export const BannerBox = styled.div`
-    width:${r(375)};
+    width:100%;
     height:${r(200)};
     border: 1px solid red;
     .am-wingblank{
@@ -117,7 +117,7 @@ export const BannerBox = styled.div`
             a{
                 height:${r(198)} !important;
                 img{
-                    height:100% !important;
+                    height:${r(198)} !important;
                     width:100% !important;
                 }
             }
