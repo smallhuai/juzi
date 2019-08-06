@@ -16,43 +16,33 @@ export class Banner extends PureComponent {
         }, 100);
     }
     render() {
-        if (this.props.slide_list) {
-            if (this.props.slide_list.size !== 0) {
-            //    console.log(this.props.slide_list.toJS());   
-                return (
-                    <BannerBox>
-                        <WingBlank>
-                            <Carousel
-                                autoplay={true}
-                                infinite
+        return (
+            <BannerBox>
+                <WingBlank>
+                    <Carousel
+                        autoplay={true}
+                        infinite
+                    >
+                        {this.props.slide_list.map((item, val) => (
+                            <a
+                                key={val}
+                                href={`${item.get("url")}`}
+                                style={{ display: 'inline-block', width: '100%'}}
                             >
-                                {this.props.slide_list.map((item,val) => (
-                                    <a
-                                        key={val}
-                                        href={`${item.get("url")}`}
-                                        style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
-                                    >
-                                        <img
-                                            src={`${item.get("image_url")}`}
-                                            alt=""
-                                            style={{ width: '100%', verticalAlign: 'top',height:198 }}
-                                            onLoad={() => {
-                                                // fire window resize event to change height
-                                                window.dispatchEvent(new Event('resize'));
-                                                this.setState({ imgHeight: 'auto' });
-                                            }}
-                                        />
-                                    </a>
-                                ))}
-                            </Carousel>
-                        </WingBlank>
-                    </BannerBox>
-                )
-            } else {
-                return null;
-            }
-        } else {
-            return null;
-        }
+                                <img
+                                    src={`${item.get("image_url")}`}
+                                    alt=""
+                                    style={{ width: '100%', verticalAlign: 'top', height: 198 }}
+                                    onLoad={() => {
+                                        // fire window resize event to change height
+                                        window.dispatchEvent(new Event('resize'));
+                                    }}
+                                />
+                            </a>
+                        ))}
+                    </Carousel>
+                </WingBlank>
+            </BannerBox>
+        )
     }
 }

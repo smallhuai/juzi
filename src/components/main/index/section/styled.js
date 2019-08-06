@@ -5,6 +5,7 @@ let r = global.r;
 export const GlobalStyle = createGlobalStyle`
 *{
     box-sizing:border-box;
+    touch-action: pan-y;
 }
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,

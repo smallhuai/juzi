@@ -20,7 +20,7 @@ export class OparaCart extends PureComponent {
                                             <div dangerouslySetInnerHTML={{ __html: item.describe }} >
                                             </div>
                                         </div>
-                                        <div>
+                                        <div className={'imgs'}>
                                             <img src={`${item.pic}`} alt="" />
                                         </div>
                                     </a>
@@ -85,10 +85,9 @@ const OparaCartList = styled.div`
                     color:#f1b441;
                } 
             }
-
             .imgs{
-                width:${r(60)};
-                height:${r(60)};
+                width:${r(50)};
+                height:${r(50)};
                 img{
                     width:100%;
                     height:auto;
@@ -96,8 +95,9 @@ const OparaCartList = styled.div`
             }   
          }
     }
-    div.firt{
+    div.firt{      
         a{
+            height:${r(80)};
             width:${r(160)};
             display:flex;
             justify-content:center;
