@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import City from "@/components/main/index/section/city"
 import ClassifyHome from "@/components/main/index/section/ClassifyHome";
 import HotsRecommend from "@/components/main/index/section/HotsRecommend";
+import TourRecommed from "@/components/main/index/section/TourRecommed"
 // import styled from "styled-components";
 class Index extends React.Component {
     constructor() {
@@ -20,8 +21,8 @@ class Index extends React.Component {
                 {/* <Banner slide_list={this.props.indexTopData.get("slide_list")}></Banner> */}
                 {/* 热门推介部分 */}
                 <HotsRecommend />
-                {/* 底部导航部分 */}
-                {/* <TabBarExample bottom_list={this.props.indexTopData.get("bottom_list")} /> */}
+                {/* 循环演唱部分TourRecommed */}
+                <TourRecommed/>
             </Fragment>
         )
     }

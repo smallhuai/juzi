@@ -63,7 +63,6 @@ export const ButtonCity = styled.div`
 `
 /* 城市选择部分 */
 export const CityWrap = styled.div`
-    width:100%;
     position:fixed;
     top:0;
     left:0;
@@ -109,7 +108,8 @@ export const CityWrap = styled.div`
 `
 /* 轮播部分 */
 export const BannerBox = styled.div`
-    width:100%;
+    width:${r(375)};
+    margin:0 auto;
     height:${r(200)};
     border: 1px solid red;
     .am-wingblank{
@@ -124,25 +124,12 @@ export const BannerBox = styled.div`
             }
         }
     }
-    /* .slider-list{ */
-        /* height:${r(198)} !important;
-        li{
-            height:100%  !important;
-            a{
-                display:block;
-                height:100%  !important;  
-                img{
-                    display:block;
-                    height:100%  !important; 
-                }
-            }
-        } */
-    /* } */
 `
 /* 演唱形式分类 */
 export const Operaclass = styled.div`
+    width:${r(375)};
+    margin:0 auto;
     height:${r(110)};
-    width:100%;
     display:flex;
     background:#fff;
     justify-content: space-between;

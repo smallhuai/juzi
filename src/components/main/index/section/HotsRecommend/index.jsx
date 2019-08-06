@@ -10,23 +10,27 @@ let r = global.r;
 class HotRecommend extends PureComponent {
     render() {
         if (this.props.hotsShowList) {
-            return (
-                <HotBox>
+            if (this.props.hotsShowList.size !== 0) {
+                return (
+                    <HotBox>
                     <div className={`hot`}>热门演出</div>
-                    <SwiperCell>
-                        {this.props.hotsShowList.map((item, index) => (
-                            <div key={index} className="swiper-slide">
-                                <a href={`${item.get("schedular_url")}`}>
-                                    <div>
-                                        <img src={`${item.get("pic")}`} alt="" />
-                                    </div>
-                                    <p>{item.get("show_name")}</p>
-                                </a>
-                            </div>
-                        ))}
-                    </SwiperCell>
-                </HotBox>
-            )
+                     <SwiperCell id={'yanchu'}>
+                            {this.props.hotsShowList.map((item, index) => (
+                                <div key={index} className="swiper-slide">
+                                    <a href={`${item.get("schedular_url")}`}>
+                                        <div>
+                                            <img src={`${item.get("pic")}`} alt="" />
+                                        </div>
+                                        <p>{item.get("show_name")}</p>
+                                    </a>
+                                </div>
+                            ))}
+                        </SwiperCell>
+                    </HotBox>
+                )
+            } else {
+                return null;
+            }
         } else {
             return null;
         }
@@ -42,8 +46,10 @@ class HotRecommend extends PureComponent {
 }
 // 热门演出样式部分
 const HotBox = styled.div`
+    width:${r(375)};
+    margin:0 auto;
     background-color: #fff;
-    padding:${r(20)};
+    padding:0 ${r(20)};
     .hot{
         height:${r(40)};
         line-height:${r(40)};

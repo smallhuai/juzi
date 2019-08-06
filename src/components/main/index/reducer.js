@@ -1,9 +1,10 @@
 import { fromJS } from "immutable"
-import { GET_INDEX_CITY, GET_INDEX_DATA, GET_HOT_RECOMEND } from "./actionCreator"
+import { GET_INDEX_CITY, GET_INDEX_DATA, GET_HOT_RECOMEND, GET_TOUR_RECOMMED } from "./actionCreator"
 const defaultStore = fromJS({
     cityList: [],
     indexTopData: {},
     hotRecommendData: [],
+    tourRecommendData: [],
     currentCity: {
         city_id: 0,
         abbreviation: "",
@@ -27,6 +28,8 @@ export default (state = defaultStore, action) => {
         return state.update("indexTopData", val => val = fromJS(indexres))
     } else if (action.type === GET_HOT_RECOMEND) {
         return state.update("hotRecommendData", val => val = fromJS(action.val.data.data));
+    } else if (action.type === GET_TOUR_RECOMMED) {
+        return state.update("tourRecommendData", val => val = fromJS(action.val.data.data));
     }
     return state;
 }

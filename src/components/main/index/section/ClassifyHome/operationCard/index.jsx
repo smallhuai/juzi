@@ -56,8 +56,9 @@ export class OparaCart extends PureComponent {
     }
 }
 const OparaCartList = styled.div`
-    /* width:100%; */
-    height:${r(247)};
+    width:${r(375)};
+    margin:0 auto;
+    height:${r(220)};
     background:#fff;
     padding:0 ${r(12)};
     div.firt,div.two{

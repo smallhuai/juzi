@@ -68,6 +68,9 @@ export const loadTourRecommendDataAsync=(dispatch,currentCity)=>{
                 version:"6.0.3",
                 referer:"2"
             }
+        }).then((res)=>{
+            console.log(res);
+            dispatch(action(res,GET_TOUR_RECOMMED))
         })
     }
 }

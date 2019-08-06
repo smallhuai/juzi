@@ -21,7 +21,8 @@ export class Adlist extends PureComponent {
     }
 }
 const AdDiv = styled.div`
-    width:100%;
+    width:${r(375)};
+    margin:0 auto;
     display:flex;
     height:${r(132)};
     padding:0 ${r(12)};
