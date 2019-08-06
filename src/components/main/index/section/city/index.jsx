@@ -17,7 +17,7 @@ class City extends PureComponent {
     }
     render() {
         return this.state.isCity ? (
-            <CityWrap>
+             <CityWrap>
                 <div className="left">
                     <ul>
                         {this.props.cityList.map((item, index) => (

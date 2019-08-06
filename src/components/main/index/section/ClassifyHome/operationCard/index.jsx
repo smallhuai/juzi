@@ -57,18 +57,29 @@ export class OparaCart extends PureComponent {
     }
 }
 const OparaCartList = styled.div`
-    width:100%;
+    /* width:100%; */
     height:${r(247)};
-    border: 1px solid #000;
     background:#fff;
+    padding:0 ${r(12)};
     div.firt,div.two{
+        width:100%;
         display:flex;
         flex-wrap:wrap;
         align-items:center;
         justify-content:space-between;
-        background:#e3e3e3;      
+        background:#e3e3e3;
+        padding:${r(10)};     
         a{
+            background-color: #fff;
             display:block; 
+            padding-left:${r(8)};
+           div{
+               p{
+                color:#333 !important;
+               }
+                
+            }
+
             .imgs{
                 width:${r(60)};
                 height:${r(60)};
@@ -80,14 +91,21 @@ const OparaCartList = styled.div`
          }
     }
     div.firt{
-        height:${r(90)};
-        padding:0 ${r(12)}
         a{
-            border: 1px solid #000;
-            width:${r(169)};
+            width:${r(160)};
             display:flex;
             justify-content:center;
             align-items:center;
         }
-    } 
+    }
+    div.two{
+        padding-top:0;
+      a{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        width:${r(106)};
+        height:${r(106)}
+      }
+    }
 `

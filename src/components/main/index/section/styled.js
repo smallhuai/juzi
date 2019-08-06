@@ -108,10 +108,23 @@ export const CityWrap = styled.div`
 `
 /* 轮播部分 */
 export const BannerBox = styled.div`
-    width:100%;
-    height:auto;
-    .slider-list{
-        height:${r(198)} !important;
+    width:${r(375)};
+    height:${r(200)};
+    border: 1px solid red;
+    .am-wingblank{
+        margin:0 ! important;
+        .slider-slide{
+            a{
+                height:${r(198)} !important;
+                img{
+                    height:100% !important;
+                    width:100% !important;
+                }
+            }
+        }
+    }
+    /* .slider-list{ */
+        /* height:${r(198)} !important;
         li{
             height:100%  !important;
             a{
@@ -122,12 +135,12 @@ export const BannerBox = styled.div`
                     height:100%  !important; 
                 }
             }
-        }
-    }
+        } */
+    /* } */
 `
 /* 演唱形式分类 */
 export const Operaclass = styled.div`
-    height:${r(140)};
+    height:${r(110)};
     width:100%;
     display:flex;
     background:#fff;

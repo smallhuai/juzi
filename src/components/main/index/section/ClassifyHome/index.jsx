@@ -10,8 +10,8 @@ class ClassifyHome extends PureComponent {
         console.log(this.props.indexTopData.toJS());
         console.log(this.props.indexTopData.get("operation_list"));
         return (
-            // 轮播组件
             <Fragment>
+                {/* 轮播组件 */}
                 <Banner slide_list={this.props.indexTopData.get("slide_list")} />
                 {/* 戏种分类 */}
                 <OperaClassfy classify_list={this.props.indexTopData.get("classify_list")}/>
