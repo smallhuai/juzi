@@ -10,11 +10,11 @@ let r = global.r;
 class HotRecommend extends PureComponent {
     render() {
         if (this.props.hotsShowList) {
-            if (this.props.hotsShowList.size !== 0) {
+            if (this.props.hotsShowList.size !== 0) {                 
                 return (
                     <HotBox>
                     <div className={`hot`}>热门演出</div>
-                     <SwiperCell id={'yanchu'}>
+                     <SwiperCell id={'yanchu'}>  
                             {this.props.hotsShowList.map((item, index) => (
                                 <div key={index} className="swiper-slide">
                                     <a href={`${item.get("schedular_url")}`}>

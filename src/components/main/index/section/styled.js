@@ -49,6 +49,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+a{
+    cursor: pointer;
+}
 `
 // 城市按钮
 export const ButtonCity = styled.div`

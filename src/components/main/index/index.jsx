@@ -2,7 +2,8 @@ import React, { Fragment } from 'react';
 import City from "@/components/main/index/section/city"
 import ClassifyHome from "@/components/main/index/section/ClassifyHome";
 import HotsRecommend from "@/components/main/index/section/HotsRecommend";
-import TourRecommed from "@/components/main/index/section/TourRecommed"
+import TourRecommed from "@/components/main/index/section/TourRecommed";
+import GetFlowShow from "@/components/main/index/section/getFlowShow";
 // import styled from "styled-components";
 class Index extends React.Component {
     constructor() {
@@ -23,6 +24,8 @@ class Index extends React.Component {
                 <HotsRecommend />
                 {/* 循环演唱部分TourRecommed */}
                 <TourRecommed/>
+                {/* 底部剧种展示部分 */}
+                <GetFlowShow/>
             </Fragment>
         )
     }

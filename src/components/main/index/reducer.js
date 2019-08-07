@@ -1,10 +1,17 @@
 import { fromJS } from "immutable"
-import { GET_INDEX_CITY, GET_INDEX_DATA, GET_HOT_RECOMEND, GET_TOUR_RECOMMED } from "./actionCreator"
+import {
+    GET_INDEX_CITY,//城市编码
+    GET_INDEX_DATA,//首页数据编码
+    GET_HOT_RECOMEND,//热点推荐编码
+    GET_TOUR_RECOMMED,//巡回演唱编码
+    GET_FLOORSHOW_DATA//底部剧种展示编码
+} from "./actionCreator"
 const defaultStore = fromJS({
     cityList: [],
     indexTopData: {},
     hotRecommendData: [],
     tourRecommendData: [],
+    floorShowData:[],
     currentCity: {
         city_id: 0,
         abbreviation: "",
@@ -26,10 +33,18 @@ export default (state = defaultStore, action) => {
     else if (action.type === GET_INDEX_DATA) {
         let indexres = action.val.data.data;
         return state.update("indexTopData", val => val = fromJS(indexres))
-    } else if (action.type === GET_HOT_RECOMEND) {
+    } 
+    // 获取热点推荐数据
+    else if (action.type === GET_HOT_RECOMEND) {
         return state.update("hotRecommendData", val => val = fromJS(action.val.data.data));
-    } else if (action.type === GET_TOUR_RECOMMED) {
+    } 
+    // 获取巡回演唱的数据
+    else if (action.type === GET_TOUR_RECOMMED) {
         return state.update("tourRecommendData", val => val = fromJS(action.val.data.data));
+    }
+    // 获取底部剧种展示部分
+    else if(action.type===GET_FLOORSHOW_DATA){
+        return state.update("floorShowData",val=>val=fromJS(action.val));
     }
     return state;
 }

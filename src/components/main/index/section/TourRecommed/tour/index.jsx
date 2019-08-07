@@ -1,5 +1,8 @@
-import React, { PureComponent} from "react";
+import React, { PureComponent } from "react";
 import { Carousel, WingBlank } from 'antd-mobile';
+import styled from "styled-components";
+import global from "@/core/global";
+let r = global.r;
 export class Tourslipe extends PureComponent {
     state = {
         data: ['1', '2', '3'],
@@ -14,44 +17,76 @@ export class Tourslipe extends PureComponent {
         }, 100);
     }
     render() {
-        console.log(this.props.tourList.toJS());
         return (
-            <WingBlank>
-                <Carousel className="space-carousel"
-                    frameOverflow="visible"
-                    cellSpacing={10}
-                    slideWidth={0.8}
-                    autoplay
-                    infinite
-                    afterChange={index => this.setState({ slideIndex: index })}
-                >
-                    {this.props.tourList.map((item, index) => (
-                        <a
-                            key={index}
-                            href={`${item.get("tour_show_url")}`}
-                            style={{
-                                display: 'block',
-                                position: 'relative',
-                                top: this.state.slideIndex === index ? -10 : 0,
-                                height: this.state.imgHeight,
-                                boxShadow: '2px 1px 1px rgba(0, 0, 0, 0.2)',
-                            }}
-                        >
-                            <img
-                                src={`${item.get("pic")}`}
-                                alt=""
-                                style={{ width: '100%', verticalAlign: 'top' }}
-                                onLoad={() => {
-                                    // fire window resize event to change height
-                                    window.dispatchEvent(new Event('resize'));
-                                    this.setState({ imgHeight: 'auto' });
+            <TourBox>
+                <WingBlank>
+                    <Carousel className="space-carousel"
+                        frameOverflow="visible"
+                        cellSpacing={10}
+                        slideWidth={0.8}
+                        autoplay={false}
+                        infinite
+                        afterChange={index => this.setState({ slideIndex: index })}
+                    >
+                        {this.props.tourList.map((item, index) => (
+                            <a
+                                key={index}
+                                href={`${item.get("tour_show_url")}`}
+                                style={{
+                                    display: 'block',
+                                    position: 'relative',
+                                    top: this.state.slideIndex === index ? -10 : 0,
+                                    height: 210,
+                                    boxShadow: '2px 1px 1px rgba(0, 0, 0, 0.2)',
                                 }}
-                            />
-                            <p>{item.get("show_name")}</p>
-                        </a>
-                    ))}
-                </Carousel>
-            </WingBlank>
+                            >
+                                <div className={'pic'}>
+                                    <img
+                                        src={`${item.get("pic")}`}
+                                        alt=""
+                                        style={{ width: '100%', verticalAlign: 'top' }}
+                                        onLoad={() => {
+                                            // fire window resize event to change height
+                                            window.dispatchEvent(new Event('resize'));
+                                            this.setState({ imgHeight: 'auto' });
+                                        }}
+                                    />
+                                </div>
+                                <p className={'Tourname'}>{item.get("show_name")}</p>
+                                <p className={'Tourcount'}>{item.get("schedular_num")}场巡演</p>
+                            </a>
+                        ))}
+                    </Carousel>
+                </WingBlank>
+            </TourBox>
         );
     }
 }
+// 巡回演唱的样式
+const TourBox = styled.div`
+    .space-carousel{
+        a{
+            .pic{
+                height:${r(140)};
+                img{
+                    width:auto;
+                    height:100%;
+                }
+            }
+            p{
+                padding-top:${r(10)};
+                text-align:center;
+                overflow:hidden;
+                text-overflow:ellipsis;
+                white-space:nowrap;
+                color:#232323; 
+                padding-right:${r(20)};
+                font-weight:700; 
+                font-size:${r(14)}      
+            }
+            p:nth-child(3){
+                color:#666;
+            }
+        }
+    }
+`

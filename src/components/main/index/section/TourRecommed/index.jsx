@@ -10,7 +10,8 @@ class TourRecommed extends PureComponent {
     render() {
         return (
             <Fragment>
-                {this.props.tourList && this.props.tourList.size !== 0 ? <TourBox> <Tourslipe tourList={this.props.tourList} /></TourBox> : null}
+                {this.props.tourList && this.props.tourList.size !== 0 ? <TourBox>
+                    <div className={'sing'}>巡回演唱</div> <Tourslipe tourList={this.props.tourList} /></TourBox> : null}
             </Fragment>
         )
     }
@@ -25,8 +26,6 @@ class TourRecommed extends PureComponent {
 }
 // 接口中的属性
 const mapStateData = (state) => {
-    // console.log(state.toJS());
-    console.log(state.getIn(["indexReducer", "tourRecommendData"]).toJS())
     return {
         currentCity: state.getIn(["indexReducer", "currentCity"]).toJS(),
         tourList: state.getIn(["indexReducer", "tourRecommendData", "tour_show_list"])
@@ -36,7 +35,6 @@ const mapStateData = (state) => {
 const mapDispatchData = (dispatch) => {
     return {
         getTourData(currentCity) {
-            console.log(currentCity);
             dispatch(loadTourRecommendDataAsync(dispatch, currentCity))
         }
     }
@@ -45,6 +43,13 @@ const mapDispatchData = (dispatch) => {
 const TourBox = styled.div`
     width:${r(375)};
     margin:0 auto;
-    overflow:hidden    
+    overflow:hidden;
+    .sing{
+        padding:0 ${r(20)};
+        height:${r(60)};
+        line-height:${r(60)};
+        font-size:${r(20)};
+        font-weight:700;
+    }
 `
 export default connect(mapStateData, mapDispatchData)(TourRecommed);
