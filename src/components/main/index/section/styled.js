@@ -155,3 +155,56 @@ export const Operaclass = styled.div`
         }
     }
 `
+/* 剧院展示部分 */
+export const HotTheaterBox = styled.div`
+    width:${r(375)};
+    margin:0 auto;
+    padding:${r(10)};
+    .swiper-slide{
+        margin-left:${r(20)};
+        width:${r(263)} !important;
+        border:1px solid #e3e3e3;
+        padding:${r(15)};
+        .top{
+            display:flex;
+            width:${r(226)};
+            height:${r(50)};
+            .toppic{
+                width:${r(50)};
+                height:${r(50)};
+                img{
+                    width:100%;
+                    height:100%;
+                }
+            }
+            .topRight{
+                padding-left:${r(20)};
+               h3{
+                   font-size:${r(16)};
+                   padding:${r(10)} 0;
+               }
+                p{
+                    font-size:${r(12)};
+                    color:#666;
+                }
+            }
+        }
+        .bottom{
+            float:left;
+            .time{
+                height:${r(50)};
+                line-height:${r(50)};
+                border-bottom:1px solid #e3e3e3;
+            }
+            .pics{
+                padding-right:${r(10)};
+                width:${r(106)};
+                height:${r(145)};
+                img{
+                    width:100%;
+                    height:100%;
+                }
+            }
+        }
+    }
+`

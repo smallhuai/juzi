@@ -3,7 +3,8 @@ export const GET_INDEX_CITY = "index/get_index_city";
 export const GET_INDEX_DATA = "index/get_index_data";
 export const GET_HOT_RECOMEND = "index/get_index_RECOMMEND";
 export const GET_TOUR_RECOMMED = "index/get_index_TOUR";
-export const GET_FLOORSHOW_DATA = "index/get_index_FLOORSHOW"
+export const GET_FLOORSHOW_DATA = "index/get_index_FLOORSHOW";
+export const GET_HOTTHEATER_DATA = "index/get_index_HOTTHEATER";
 const action = (val, type) => {
     return {
         type,  //GET_INDEX_CITY = "index/get_index_city";
@@ -86,7 +87,7 @@ export const loadFloorShowDataAsync = (dispatch, currentCity) => {
                 referer: "2"
             }
         }).then((res) => {
-            dispatch(action(res.data.data,GET_FLOORSHOW_DATA))
+            dispatch(action(res.data.data, GET_FLOORSHOW_DATA))
         })
     }
 }
@@ -94,3 +95,17 @@ export const loadFloorShowDataAsync = (dispatch, currentCity) => {
 
 
 // 南山体育中心 https://api.juooo.com/home/index/getHotTheatre?version=6.0.3&referer=2
+export const loadHotTheaterData = (dispatch) => {
+    return () => {
+        request({
+            method: "get",
+            url: "home/index/getHotTheatre",
+            params: {
+                version: "6.0.3",
+                referer: "2"
+            }
+        }).then((res) => {
+            dispatch(action(res.data.data.theatre_list, GET_HOTTHEATER_DATA))
+        })
+    }
+}

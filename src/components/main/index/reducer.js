@@ -4,14 +4,17 @@ import {
     GET_INDEX_DATA,//首页数据编码
     GET_HOT_RECOMEND,//热点推荐编码
     GET_TOUR_RECOMMED,//巡回演唱编码
-    GET_FLOORSHOW_DATA//底部剧种展示编码
+    GET_FLOORSHOW_DATA,//底部剧种展示编码
+    GET_HOTTHEATER_DATA//获取剧院的编码
 } from "./actionCreator"
+import { from } from "rxjs";
 const defaultStore = fromJS({
     cityList: [],
     indexTopData: {},
     hotRecommendData: [],
     tourRecommendData: [],
     floorShowData:[],
+    hotTheaterData:[],
     currentCity: {
         city_id: 0,
         abbreviation: "",
@@ -45,6 +48,10 @@ export default (state = defaultStore, action) => {
     // 获取底部剧种展示部分
     else if(action.type===GET_FLOORSHOW_DATA){
         return state.update("floorShowData",val=>val=fromJS(action.val));
+    }
+    //获取剧院播放的相关数据
+    else if(action.type===GET_HOTTHEATER_DATA){
+        return state.update("hotTheaterData",(val)=>val=fromJS(action.val));
     }
     return state;
 }
