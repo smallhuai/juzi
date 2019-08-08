@@ -1,7 +1,5 @@
 import React, { PureComponent } from "react";
-import styled from "styled-components";
-import global from "@/core/global"
-let r = global.r;
+import {ShowData} from "@/components/main/index/section/styled"
 export class ShowHeaderData extends PureComponent {
     render() {
         return (
@@ -32,38 +30,3 @@ export class ShowHeaderData extends PureComponent {
         )
     }
 }
-const ShowData = styled.div`
-    width:${r(375)};
-    margin:0 auto;
-    margin-bottom:${r(15)};
-    .show{
-        display:flex;
-        padding:${r(12)} ${r(18)};
-        .pic{
-            height:${r(145)};
-            width:${r(106)};
-        img{
-            width:auto;
-            height:100%;
-        }
-        }    
-    }
-    .decribe{
-        color:#fff;
-        padding:${r(15)} 0;
-        padding-left:${r(25)};
-       p{
-           padding-bottom:${r(12)};       
-       }
-       p:nth-child(1){
-           font-size:${r(18)};
-           span{
-                font-size:${r(12)};
-           }
-       }
-       p:nth-child(2){
-           font-size:${r(18)};
-           font-weight:700;
-       }
-    }
-`

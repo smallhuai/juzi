@@ -15,7 +15,7 @@ class SwiperCell extends PureComponent {
         )
     }
     componentDidMount() {
-        new SwiperJs(`#${this.props.id}`, { slidesPerView: 3,freeMode:true })
+        new SwiperJs(`#${this.props.id}`, { slidesPerView: 3, freeMode: true })            
     }
 }
 // id={this.props.id} `#id${this.props.id}`

@@ -5,6 +5,7 @@ export const GET_HOT_RECOMEND = "index/get_index_RECOMMEND";
 export const GET_TOUR_RECOMMED = "index/get_index_TOUR";
 export const GET_FLOORSHOW_DATA = "index/get_index_FLOORSHOW";
 export const GET_HOTTHEATER_DATA = "index/get_index_HOTTHEATER";
+export const GET_RECOMMENDSHOW_DATA = "index/get_index_RECOMMENDSHOW";
 const action = (val, type) => {
     return {
         type,  //GET_INDEX_CITY = "index/get_index_city";
@@ -91,9 +92,6 @@ export const loadFloorShowDataAsync = (dispatch, currentCity) => {
         })
     }
 }
-//为你推荐接口 https://api.juooo.com/home/index/getRecommendShow?cityAdd=&page=1&version=6.0.3&referer=2;
-
-
 // 南山体育中心 https://api.juooo.com/home/index/getHotTheatre?version=6.0.3&referer=2
 export const loadHotTheaterData = (dispatch) => {
     return () => {
@@ -107,5 +105,22 @@ export const loadHotTheaterData = (dispatch) => {
         }).then((res) => {
             dispatch(action(res.data.data.theatre_list, GET_HOTTHEATER_DATA))
         })
+    }
+}
+//为你推荐接口 https://api.juooo.com/home/index/getRecommendShow?cityAdd=&page=1&version=6.0.3&referer=2;
+export const loadRecommedShowData=(dispatch,data)=>{
+    return()=>{
+        request({
+            method:"get",
+            url:"home/index/getRecommendShow",
+            params:{
+                cityAdd: data.cityAdd,
+                page: data.page,
+                version:"6.0.3",
+                referer:"2"
+            }
+        }).then((res)=>{
+            dispatch(action(res.data.data.recommend_show_list,GET_RECOMMENDSHOW_DATA))
+        })  
     }
 }

@@ -26,11 +26,11 @@ export class Banner extends PureComponent {
                         {this.props.slide_list.map((item, val) => (
                             <a
                                 key={val}
-                                href={`${item.get("url")}`}
+                                href={`${item.url}`}
                                 style={{ display: 'inline-block', width: '100%'}}
                             >
                                 <img
-                                    src={`${item.get("image_url")}`}
+                                    src={`${item.image_url}`}
                                     alt=""
                                     style={{ width: '100%', verticalAlign: 'top', height: 198 }}
                                     onLoad={() => {

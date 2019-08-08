@@ -160,6 +160,9 @@ export const HotTheaterBox = styled.div`
     width:${r(375)};
     margin:0 auto;
     padding:${r(10)};
+    h1{
+        font-weight:700;
+    }
     .swiper-slide{
         margin-left:${r(20)};
         width:${r(263)} !important;
@@ -204,6 +207,65 @@ export const HotTheaterBox = styled.div`
                     width:100%;
                     height:100%;
                 }
+            }
+        }
+    }
+`
+/* 剧院展示部分的样式 */
+export const ShowData = styled.div`
+    width:${r(375)};
+    margin:0 auto;
+    margin-bottom:${r(15)};
+    .show{
+        display:flex;
+        padding:${r(12)} ${r(18)};
+        .pic{
+            height:${r(145)};
+            width:${r(106)};
+        img{
+            width:auto;
+            height:100%;
+        }
+        }    
+    }
+    .decribe{
+        color:#fff;
+        padding:${r(15)} 0;
+        padding-left:${r(25)};
+       p{
+           padding-bottom:${r(12)};       
+       }
+       p:nth-child(1){
+           font-size:${r(18)};
+           span{
+                font-size:${r(12)};
+           }
+       }
+       p:nth-child(2){
+           font-size:${r(18)};
+           font-weight:700;
+       }
+    }
+`
+/* 为你推荐的样式 */
+export const PullShowData = styled(ShowData)`
+    h1{
+        padding:0 ${r(10)};
+        font-weight:700;
+    }
+    .pic{
+            margin-top:${r(20)};
+        }
+    .decribe{
+        color:#333;
+       
+        .place{
+            color:#666;
+        }
+        .price{
+            color:#f24f26;
+            span{
+                color:#999;
             }
         }
     }

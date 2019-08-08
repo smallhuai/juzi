@@ -4,13 +4,13 @@ import { loadIndexData } from "@/components/main/index/actionCreator";
 import { Banner } from "./banner";
 import { OperaClassfy } from "./oparaClassfy";
 import { Adlist } from "./ad_list";
-import { OparaCart } from "./operationCard"
+import { OparaCart } from "./operationCard";
 class ClassifyHome extends PureComponent {
     render() {
         return (
             <Fragment>
                 {/* 轮播组件 Banner*/}
-                {this.props.indexTopData.get("slide_list") && this.props.indexTopData.get("slide_list").size ? <Banner slide_list={this.props.indexTopData.get("slide_list")} /> : null}
+                {this.props.indexTopData.get("slide_list") && this.props.indexTopData.get("slide_list").size ? <Banner slide_list={this.props.indexTopData.get("slide_list").toJS()} /> : null}
                 {/* 戏种分类 OperaClassfy*/}
                 <OperaClassfy classify_list={this.props.indexTopData.get("classify_list")} />
                 {/* 广告部分 */}
