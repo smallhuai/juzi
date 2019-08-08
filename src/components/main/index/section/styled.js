@@ -114,9 +114,11 @@ export const BannerBox = styled.div`
     width:${r(375)};
     margin:0 auto;
     height:${r(200)};
-    border: 1px solid red;
     .am-wingblank{
         margin:0 ! important;
+        .am-carousel-wrap-dot > span{
+            display:inline ! important;
+        }
         .slider-slide{
             a{
                 height:${r(198)} !important;
@@ -155,7 +157,7 @@ export const Operaclass = styled.div`
         }
     }
 `
-/* 剧院展示部分 */
+/* 热门剧场展示部分 */
 export const HotTheaterBox = styled.div`
     width:${r(375)};
     margin:0 auto;
@@ -163,12 +165,13 @@ export const HotTheaterBox = styled.div`
     h1{
         font-weight:700;
     }
-    .swiper-slide{
-        margin-left:${r(20)};
-        width:${r(263)} !important;
-        border:1px solid #e3e3e3;
-        padding:${r(15)};
-        .top{
+    .swiper-slide{  
+        .total{
+            padding:${r(15)};
+            width:${r(263)} ;
+            height:${r(300)};
+            border:1px solid #e3e3e3;
+            .top{
             display:flex;
             width:${r(226)};
             height:${r(50)};
@@ -209,7 +212,8 @@ export const HotTheaterBox = styled.div`
                 }
             }
         }
-    }
+     }
+    }     
 `
 /* 剧院展示部分的样式 */
 export const ShowData = styled.div`
@@ -267,6 +271,36 @@ export const PullShowData = styled(ShowData)`
             span{
                 color:#999;
             }
+        }
+    }
+`
+/* 首页顶部导航 */
+export const TopNav = styled.div`
+    width:${r(375)};
+    height:${r(50)};
+    margin:0 auto;
+    position:fixed;
+    top:0;
+    z-index:1000;
+    display:flex;
+    align-items:center; 
+    justify-content:space-between;
+    padding: 0 ${r(20)};
+    input{
+        height:${r(30)};
+        width:${r(240)};
+        background:#000;
+        opacity:0.2;
+        border: 1px solid #000;
+        border-radius:${r(15)};
+        text-indent:${r(20)};
+    }
+    .pic{
+        height:${r(30)};
+        width:${r(30)};
+        img{
+            width:100%;
+            height:auto;
         }
     }
 `

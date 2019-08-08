@@ -7,6 +7,7 @@ import TourRecommed from "@/components/main/index/section/TourRecommed";
 import GetFlowShow from "@/components/main/index/section/getFlowShow";
 import HotTheater from "@/components/main/index/section/hotTheater";
 import PullRefresh from "@/components/main/index/section/Pullrefresh";
+import { TopNav } from "./section/styled";
 import FoorNav from "@/components/main/index/section/ClassifyHome/footNav";
 class Index extends React.Component {
     constructor() {
@@ -18,12 +19,15 @@ class Index extends React.Component {
     render() {
         return (
             <Fragment>
-                {/* 城市部分 */}
-                <City />
+                {/* 顶部城市部分 输入框和图片 */}
+                <TopNav>
+                    <City />
+                    <input type="text" placeholder={'热门搜搜'}/>
+                    <div className={'pic'}><img src={'https://image.juooo.com/group1/M00/02/65/rAoKmVyvD7iAHJX4AAADmpmoUeI150.png'} alt="" /></div>
+                </TopNav>
                 {/* classifyHome 首页分类部分  */}
                 <PullRefresh>
                     <ClassifyHome />
-                    {/* <Banner slide_list={this.props.indexTopData.get("slide_list")}></Banner> */}
                     {/* 热门推介部分 */}
                     <HotsRecommend />
                     {/* 循环演唱部分TourRecommed */}

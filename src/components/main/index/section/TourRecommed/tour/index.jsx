@@ -31,7 +31,7 @@ export class Tourslipe extends PureComponent {
                         {this.props.tourList.map((item, index) => (
                             <a
                                 key={index}
-                                href={`${item.get("tour_show_url")}`}
+                                href={`${item.tour_show_url}`}
                                 style={{
                                     display: 'block',
                                     position: 'relative',
@@ -42,7 +42,7 @@ export class Tourslipe extends PureComponent {
                             >
                                 <div className={'pic'}>
                                     <img
-                                        src={`${item.get("pic")}`}
+                                        src={`${item.pic}`}
                                         alt=""
                                         style={{ width: '100%', verticalAlign: 'top' }}
                                         onLoad={() => {
@@ -52,8 +52,8 @@ export class Tourslipe extends PureComponent {
                                         }}
                                     />
                                 </div>
-                                <p className={'Tourname'}>{item.get("show_name")}</p>
-                                <p className={'Tourcount'}>{item.get("schedular_num")}场巡演</p>
+                                <p className={'Tourname'}>{item.show_name}</p>
+                                <p className={'Tourcount'}>{item.schedular_num}场巡演</p>
                             </a>
                         ))}
                     </Carousel>
@@ -64,7 +64,11 @@ export class Tourslipe extends PureComponent {
 }
 // 巡回演唱的样式
 const TourBox = styled.div`
+    height:${r(190)}
     .space-carousel{
+        .am-carousel-wrap-dot > span{
+            display:inline ! important;
+        }
         a{
             .pic{
                 height:${r(140)};

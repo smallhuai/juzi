@@ -11,7 +11,7 @@ class TourRecommed extends PureComponent {
         return (
             <Fragment>
                 {this.props.tourList && this.props.tourList.size !== 0 ? <TourBox>
-                    <div className={'sing'}>巡回演唱</div> <Tourslipe tourList={this.props.tourList} /></TourBox> : null}
+                    <div className={'sing'}>巡回演唱</div> <Tourslipe tourList={this.props.tourList.toJS()} /></TourBox> : null}
             </Fragment>
         )
     }

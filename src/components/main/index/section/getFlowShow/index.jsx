@@ -10,7 +10,8 @@ class FloorShow extends PureComponent {
     constructor() {
         super();
         this.state = {
-            bg: ['rgb(138, 124, 149)', 'rgba(53,37,37,1)', 'rgb(70, 59, 50)', 'rgb(113, 148, 90)', 'rgb(37, 40, 38)', 'rgb(69, 41, 29)']
+            bg: ['rgb(138, 124, 149)', 'rgba(53,37,37,1)', 'rgb(70, 59, 50)', 'rgb(113, 148, 90)', 'rgb(37, 40, 38)', 'rgb(69, 41, 29)'],
+            slidesPerView:3
         }
     }
     render() {
@@ -28,7 +29,7 @@ class FloorShow extends PureComponent {
                                             {/* 底部剧种页面展示的头部 */}
                                             <ShowHeaderData floorShowData={item.get("list").slice(0, 1)} bg={this.state.bg} index={index} />
                                             {/* 展示轮播的部分 */}
-                                            <SwiperCell id={`floorShow${index}`}>
+                                            <SwiperCell id={`floorShow${index}`} slidesPerView={this.state.slidesPerView}>
                                                 {item.get("list").slice(1).map((el, num) => (
                                                     <div key={num} className="swiper-slide">
                                                         <a href={`${el.get("url")}`}>

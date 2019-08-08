@@ -8,13 +8,19 @@ import global from "@/core/global"
 let r = global.r;
 // 热门演出逻辑组件部分
 class HotRecommend extends PureComponent {
+    constructor(){
+        super();
+        this.state={
+            slidesPerView:3
+        }
+    }
     render() {
         if (this.props.hotsShowList) {
             if (this.props.hotsShowList.size !== 0) {                 
                 return (
                     <HotBox>
                     <div className={`hot`}>热门演出</div>
-                     <SwiperCell id={'yanchu'}>  
+                     <SwiperCell id={'yanchu'} slidesPerView={this.state.slidesPerView}>  
                             {this.props.hotsShowList.map((item, index) => (
                                 <div key={index} className="swiper-slide">
                                     <a href={`${item.get("schedular_url")}`}>
