@@ -22,7 +22,7 @@ class Index extends React.Component {
                 {/* 顶部城市部分 输入框和图片 */}
                 <TopNav>
                     <City />
-                    <input type="text" placeholder={'热门搜搜'}/>
+                    <input type="text" placeholder={'热门搜搜'} />
                     <div className={'pic'}><img src={'https://image.juooo.com/group1/M00/02/65/rAoKmVyvD7iAHJX4AAADmpmoUeI150.png'} alt="" /></div>
                 </TopNav>
                 {/* classifyHome 首页分类部分  */}
@@ -39,7 +39,7 @@ class Index extends React.Component {
                     {/* 下拉更新部分 */}
                 </PullRefresh>
                 {/* 底部导航  */}
-                {/* {this.props.bottomList && this.props.bottomList !== 0 ? < FoorNav bottomList={this.props.bottomList} /> : null} */}
+                < FoorNav />
             </Fragment>
         )
     }

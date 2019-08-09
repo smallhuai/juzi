@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { createGlobalStyle } from "styled-components";
 import global from "@/core/global"
+import Theater from "../../ju";
 let r = global.r;
 export const GlobalStyle = createGlobalStyle`
 *{
@@ -55,6 +56,7 @@ a{
 `
 // 城市按钮
 export const ButtonCity = styled.div`
+    margin:0 auto;
     height:${r(30)};
     width:${r(60)};
     line-height:${r(30)};
@@ -251,8 +253,9 @@ export const ShowData = styled.div`
        }
     }
 `
-/* 为你推荐的样式 */
+/* 下拉为你推荐的样式 */
 export const PullShowData = styled(ShowData)`
+    background:#fff;
     h1{
         padding:0 ${r(10)};
         font-weight:700;
@@ -280,7 +283,9 @@ export const TopNav = styled.div`
     height:${r(50)};
     margin:0 auto;
     position:fixed;
-    top:0;
+    left: 0;
+    top: 0;
+    right: 0;
     z-index:1000;
     display:flex;
     align-items:center; 
@@ -301,6 +306,125 @@ export const TopNav = styled.div`
         img{
             width:100%;
             height:auto;
+        }
+    }
+`
+/* 底部导航的样式 */
+export const FootNative = styled.div`
+    width:${r(375)};
+    height:${r(80)};
+    position: fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    display:flex;
+    z-index:1000;
+    background:#fff;
+    justify-content:space-around;
+    align-items:center;
+    text-align:center;
+    .nav{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        height:${r(50)};
+        width:${r(50)};
+        div{
+            height:${r(40)};
+            width:${r(40)};
+            img{
+                width:100%;
+            }
+        }
+    }
+`
+/* 剧院顶部的样式 */
+export const TopTheart = styled.div`
+    width:${r(375)};
+    margin:0 auto;
+    height:${r(60)};
+   div{
+    height:${r(60)};
+    text-align:center;
+    line-height:${r(60)};
+    font-size:${r(20)};
+    border-bottom: 1px solid #999;
+    background:#fff;
+    position:fixed;
+    left:0;
+    top:0;
+    right:0;
+   }
+`
+
+/* 剧场的样式 */
+export const TheaterList = styled.div`
+    width:${r(375)};
+    margin:0 auto;
+    height:${r(500)};
+    .total{
+            margin:${r(20)} ${r(20)};
+            padding:${r(15)};
+            width:${r(320)} ;
+            overflow:hidden;
+            border:1px solid #e3e3e3;
+            .sc-gZMcBi{
+                margin-top:${r(20)};
+            }
+            .top{
+            display:flex;
+            width:${r(226)};
+            height:${r(50)};
+            .toppic{
+                width:${r(50)};
+                height:${r(50)};
+                img{
+                    width:100%;
+                    height:100%;
+                }
+            }
+            .topRight{
+                padding-left:${r(20)};
+               h3{
+                   font-size:${r(16)};
+                   padding:${r(10)} 0;
+               }
+                p{
+                    font-size:${r(12)};
+                    color:#666;
+                }
+            }        
+       }
+    }
+`
+/* 剧院轮播的样式 */
+export const TheaterPlay=styled.div`
+    width:${r(375)};
+    margin:0 auto;
+    .time{
+        height:${r(30)};
+        line-height:${r(30)};
+        text-align:center;
+        border-bottom:1px solid #999;
+        position:relative;
+        span{
+            display:inline-block;
+            height:${r(9)};
+            width:${r(9)};
+            background:#999;
+            border-radius:50%;
+            position:absolute;
+            left:45%;
+            top:${r(24)};
+        }
+    }
+    .pic{
+        width:${r(106)};
+        height:${r(145)};
+        margin-top:${r(10)};
+        img{
+            width:100%;
+            height:100%;
         }
     }
 `
