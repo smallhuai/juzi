@@ -1,7 +1,6 @@
 import React, { PureComponent, Fragment } from "react";
 import { getCityData } from "../actionCreator";
 import { CityContend } from "@/components/main/index/section/styled"
-import { dim } from "ansi-colors";
 class CitySelect extends PureComponent {
     constructor() {
         super();
@@ -15,7 +14,6 @@ class CitySelect extends PureComponent {
         }
     }
     render() {
-
         return (
             <Fragment>
                 {
@@ -34,6 +32,11 @@ class CitySelect extends PureComponent {
                                         ))
                                     }
                                 </ul>
+                                <div className={'empty'}></div>
+                                <div className={'showNot'}>
+                                    <span>重置</span>
+                                    <span>确定</span>
+                                </div>
                             </div>
                         </CityContend>
                 }
@@ -45,7 +48,7 @@ class CitySelect extends PureComponent {
     // 初始化城市数据,
     componentDidMount() {
         getCityData((res) => {
-            let cityListAll=res.data.data.city_list;
+            let cityListAll = res.data.data.city_list;
             cityListAll.unshift(this.state.currentCity);
             this.setState({
                 cityList: cityListAll
@@ -56,6 +59,11 @@ class CitySelect extends PureComponent {
     haddleCity() {
         this.setState({
             iscity: !this.state.iscity
+        })
+    }
+    hiddleCityitem(item) {
+        this.setState({
+            currentCity: item
         })
     }
 }

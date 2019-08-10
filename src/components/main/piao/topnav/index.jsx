@@ -66,16 +66,20 @@ class TopNav extends PureComponent {
     data.city_id = this.state.city_id;
     // 演唱会  音乐会的数据
     getShowListData(data, (res) => {
+      let showListMore = res.data.data.list
+      console.log(showListMore);
       this.setState({
-        showList: res.data.data.list
+        showList: showListMore
       })
     })
   }
   componentDidMount() {
     // 获取顶部导航的数据
     getCategoryData((res) => {
+      let showListCate = res.data.data.show_category_list
+      showListCate.unshift({category_id:"0",name:"全国"})
       this.setState({
-        cateGoryData: res.data.data.show_category_list
+        cateGoryData: showListCate
       })
     });
   }

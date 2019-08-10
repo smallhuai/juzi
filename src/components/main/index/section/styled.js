@@ -449,6 +449,9 @@ export const Tabfixed = styled.div`
         position:fixed;
         top: 60px;  
         z-index: 2000;
+        #m-tabs-1-7{
+            margin-right:${r(100)};
+        }
     }
     .am-tabs-default-bar-top .am-tabs-default-bar-tab{
             background: #fff;
@@ -464,7 +467,7 @@ export const Tabfixed = styled.div`
     }  
 `
 /* 票夹中使用城市的组件 */
-export const CityContend=styled.div`
+export const CityContend = styled.div`
     width:${r(375)};
     height:100%;
     margin:0 auto;
@@ -490,13 +493,19 @@ export const CityContend=styled.div`
         box-sizing: border-box;
         position: relative;
         overflow:scroll;
+        z-index:4001;
         h1{
             font-size: .4rem;
             color: #666;
             height: .53333rem;
             line-height: .53333rem
         }
-        ul{   
+        ul::after{/*伪元素是行内元素 正常浏览器清除浮动方法*/
+            content: "";
+            display: block;
+            clear:both;
+        }
+        ul{
             li{
                 float: left;
                 text-align: center;
@@ -513,6 +522,30 @@ export const CityContend=styled.div`
             li:nth-child(1){
                 background-color: #fff1e9;
                 color: #ff6743;
+            }
+        }
+        .empty{
+            height:${r(180)}
+        }
+        .showNot{
+            display:flex;
+            position:fixed;
+            bottom:0;
+            left:2.16rem;
+            right:0;
+            height:${r(60)}; 
+            font-size:${r(14)};
+            span{
+                flex:1;
+                display:inline-block;
+                line-height:${r(60)};
+                text-align:center;
+                z-index:5000;
+                background:#fff;
+            }
+            span:nth-child(2){
+                color: #fff;
+                background-color: #ff6743;
             }
         }
 
