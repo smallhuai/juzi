@@ -5,10 +5,6 @@ const axios = require("axios");
 //输出在命令行里面
 module.exports = function (app) {
     // console.log(app) 
-    // var userInfo=[];
-    app.get("/test", (req, res) => {
-        res.send("OK !!!!!")
-    })
     // https://api.juooo.com
     app.use(proxy("/apis", {
         target: "https://api.juooo.com",
@@ -22,11 +18,15 @@ module.exports = function (app) {
     }));
     // https://api.juooo.com/home/index/getFloorShow?city_id=0&version=6.0.3&referer=2 
     // Host: api.juooo.com
-    // Origin: https://m.juooo.com
+    // Origin: https://m.juooo.com https://m.juooo.com
     // Referer: https://m.juooo.com/
-    app.post("/napis", (req, res) => {
-        res.send("OK");
-    })
+    app.use(proxy("/ip", {
+        target: "https://m.juooo.com",
+        changeOrigin: true,
+        pathRewrite: {
+            "^/ip": ""
+        }
+    }))
 }
 
 // var express= require("express");

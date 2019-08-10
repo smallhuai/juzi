@@ -1,34 +1,83 @@
-import React,{ PureComponent } from "react";
+import React, { PureComponent } from "react";
 import { Tabs, WhiteSpace } from 'antd-mobile';
-
+import { getCategoryData, getShowListData } from "../actionCreator";
+import { PullShowData, Tabfixed } from "@/components/main/index/section/styled";
+import CitySelect from "./city";
 class TopNav extends PureComponent {
-  renderContent = tab =>
-    (<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-      <p>Content of {tab.title}</p>
-    </div>);
-
+  constructor() {
+    super();
+    this.state = {
+      cateGoryData: [],
+      showList: [],
+      currentCity: {
+        city_id: "0",
+        name: "全国"
+      }
+    }
+  }
   render() {
-    const tabs = [
-      { title: '1st Tab' },
-      { title: '2nd Tab' },
-      { title: '3rd Tab' },
-      { title: '4th Tab' },
-      { title: '5th Tab' },
-      { title: '6th Tab' },
-      { title: '7th Tab' },
-      { title: '8th Tab' },
-      { title: '9th Tab' },
-    ];
-
+    let tabs = []
+    this.state.cateGoryData.map((item) => tabs.push({ title: item.name, category_id: item.category_id }))
     return (
       <div>
         <WhiteSpace />
-        <Tabs tabs={tabs} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={3} />}>
-          {this.renderContent}
-        </Tabs>
+        <Tabfixed>
+          <div className={'tabs'}>
+            <Tabs tabs={tabs} onTabClick={this.getClickData.bind(this)} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={4} />}>
+            </Tabs>
+          </div>
+          <CitySelect />
+        </Tabfixed>
+        <PullShowData>
+          {
+            this.state.showList && this.state.showList.length !== 0 ? this.state.showList.map((item, index) => (
+              <div key={index} className={'show'}>
+                <div className={'pic'}>
+                  <img src={`${item.pic}`} alt="" />
+                </div>
+                <div className={'decribe'}>
+                  <p>
+                    {`${item.show_time_top} `}
+                    <span>{`${item.show_time_bottom}`}</span>
+                  </p>
+                  <p>
+                    {item.name}
+                  </p>
+                  <p className={'place'}>
+                    {`${item.city_name} | ${item.venue_name}`}
+                  </p>
+                  <p className={`price`}>
+                    ￥ {`${item.min_price}`} <span>起</span>
+                  </p>
+                </div>
+              </div>
+            )) : null
+          }
+        </PullShowData>
         <WhiteSpace />
       </div>
     );
+  }
+  // 获取展示数据的文件
+  getClickData(tab) {
+    console.log(tab);
+    let data = {};
+    data.category = tab.category_id;
+    data.city_id = this.state.city_id;
+    // 演唱会  音乐会的数据
+    getShowListData(data, (res) => {
+      this.setState({
+        showList: res.data.data.list
+      })
+    })
+  }
+  componentDidMount() {
+    // 获取顶部导航的数据
+    getCategoryData((res) => {
+      this.setState({
+        cateGoryData: res.data.data.show_category_list
+      })
+    });
   }
 }
 export default TopNav;

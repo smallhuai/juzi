@@ -313,6 +313,7 @@ export const TopNav = styled.div`
 export const FootNative = styled.div`
     width:${r(375)};
     height:${r(80)};
+    margin:0 auto;
     position: fixed;
     left:0;
     right:0;
@@ -344,6 +345,9 @@ export const TopTheart = styled.div`
     margin:0 auto;
     height:${r(60)};
    div{
+    z-index:1000;
+    margin:0 auto;
+    width:${r(375)};
     height:${r(60)};
     text-align:center;
     line-height:${r(60)};
@@ -398,7 +402,7 @@ export const TheaterList = styled.div`
     }
 `
 /* 剧院轮播的样式 */
-export const TheaterPlay=styled.div`
+export const TheaterPlay = styled.div`
     width:${r(375)};
     margin:0 auto;
     .time{
@@ -426,5 +430,91 @@ export const TheaterPlay=styled.div`
             width:100%;
             height:100%;
         }
+    }
+`
+/* 票的组件固定在顶部 */
+export const Tabfixed = styled.div`
+    width:${r(375)};
+    margin:0 auto;
+    height:${r(40)};
+    display:flex;
+    position:fixed;
+    top: 60px;  
+    .tabs{
+        flex:5;
+        z-index:3000;
+        overflow:hidden;
+        .am-tabs-default-bar-top .am-tabs-default-bar-content, .am-tabs-default-bar-bottom .am-tabs-default-bar-content{
+        background: #fff;
+        position:fixed;
+        top: 60px;  
+        z-index: 2000;
+    }
+    .am-tabs-default-bar-top .am-tabs-default-bar-tab{
+            background: #fff;
+        }
+    }
+    .city{
+        background:#fff;
+        z-index:9000;
+        flex:1;
+        text-align:center;
+        height: 30px;
+        padding: 15px 0;
+    }  
+`
+/* 票夹中使用城市的组件 */
+export const CityContend=styled.div`
+    width:${r(375)};
+    height:100%;
+    margin:0 auto;
+    position:fixed;
+    top:${r(60)};
+    bottom:0;
+    left:0;
+    right:0;
+    z-index:4000;
+    background-color: rgba(0,0,0,.6);
+    .left{
+        width: 2.16rem;
+        height: 100%;
+        float: left;
+    }
+    .right{ 
+        width: 7.84rem;
+        height: 100%;
+        background-color: #fefefe;
+        float: right;
+        padding: .4rem .4rem 0;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        position: relative;
+        overflow:scroll;
+        h1{
+            font-size: .4rem;
+            color: #666;
+            height: .53333rem;
+            line-height: .53333rem
+        }
+        ul{   
+            li{
+                float: left;
+                text-align: center;
+                width: 2.18rem;
+                height: .85333rem;
+                line-height: .85333rem;
+                border-radius: .05333rem;
+                background-color: #f5f5f5;
+                color: #232323;
+                font-size: .32rem;
+                margin-right: .16rem;
+                margin-bottom: .16rem;
+            }
+            li:nth-child(1){
+                background-color: #fff1e9;
+                color: #ff6743;
+            }
+        }
+
     }
 `
