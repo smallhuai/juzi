@@ -10,10 +10,12 @@ class CitySelect extends PureComponent {
                 name: "全国"
             },
             cityList: [],
-            iscity: true
+            iscity: true,
+            stclik: false,
+            currentIndex: "",
         }
     }
-    render() {
+    render() {      
         return (
             <Fragment>
                 {
@@ -26,7 +28,7 @@ class CitySelect extends PureComponent {
                                 <ul>
                                     {
                                         this.state.cityList.map((item, index) => (
-                                            <li key={index}>
+                                            <li key={index} className={`${this.state.currentIndex === index ? 'active' : ''}`} onClick={this.hiddleNative.bind(this, item, index)}>
                                                 {item.name}
                                             </li>
                                         ))
@@ -35,12 +37,11 @@ class CitySelect extends PureComponent {
                                 <div className={'empty'}></div>
                                 <div className={'showNot'}>
                                     <span>重置</span>
-                                    <span>确定</span>
+                                    <span onClick={this.hiddleCityitem.bind(this)}>确定</span>
                                 </div>
                             </div>
                         </CityContend>
                 }
-
             </Fragment>
 
         )
@@ -49,7 +50,10 @@ class CitySelect extends PureComponent {
     componentDidMount() {
         getCityData((res) => {
             let cityListAll = res.data.data.city_list;
-            cityListAll.unshift(this.state.currentCity);
+            cityListAll.unshift({
+                city_id: "0",
+                name: "全国"
+            });
             this.setState({
                 cityList: cityListAll
             })
@@ -61,9 +65,18 @@ class CitySelect extends PureComponent {
             iscity: !this.state.iscity
         })
     }
-    hiddleCityitem(item) {
+    // 点击城市的时候切换样式
+    hiddleNative(item, index) {
         this.setState({
+            currentIndex: index,
             currentCity: item
+        }) 
+        this.props.hiddleCity(item)
+    }
+    // 点击的时候 切换城市
+    hiddleCityitem() {
+        this.setState({
+            iscity: !this.state.iscity
         })
     }
 }

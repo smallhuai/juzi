@@ -26,7 +26,7 @@ class TopNav extends PureComponent {
             <Tabs tabs={tabs} onTabClick={this.getClickData.bind(this)} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={4} />}>
             </Tabs>
           </div>
-          <CitySelect />
+          <CitySelect hiddleCity={this.hiddleCity.bind(this)}/>
         </Tabfixed>
         <PullShowData>
           {
@@ -60,14 +60,12 @@ class TopNav extends PureComponent {
   }
   // 获取展示数据的文件
   getClickData(tab) {
-    console.log(tab);
     let data = {};
     data.category = tab.category_id;
-    data.city_id = this.state.city_id;
+    data.city_id = this.state.currentCitycity_id;
     // 演唱会  音乐会的数据
     getShowListData(data, (res) => {
       let showListMore = res.data.data.list
-      console.log(showListMore);
       this.setState({
         showList: showListMore
       })
@@ -82,6 +80,13 @@ class TopNav extends PureComponent {
         cateGoryData: showListCate
       })
     });
+  }
+  // 从子组件中获得数据
+  hiddleCity(currentCity){
+    console.log(currentCity)
+    this.setState({
+      currentCity:currentCity
+    })
   }
 }
 export default TopNav;

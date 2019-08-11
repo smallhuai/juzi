@@ -439,7 +439,10 @@ export const Tabfixed = styled.div`
     height:${r(40)};
     display:flex;
     position:fixed;
-    top: 60px;  
+    top: 60px;
+    left: 0;
+    right: 0;
+    overflow: hidden;
     .tabs{
         flex:5;
         z-index:3000;
@@ -447,7 +450,8 @@ export const Tabfixed = styled.div`
         .am-tabs-default-bar-top .am-tabs-default-bar-content, .am-tabs-default-bar-bottom .am-tabs-default-bar-content{
         background: #fff;
         position:fixed;
-        top: 60px;  
+        top: 60px; 
+        right:0; 
         z-index: 2000;
         #m-tabs-1-7{
             margin-right:${r(100)};
@@ -478,10 +482,11 @@ export const CityContend = styled.div`
     right:0;
     z-index:4000;
     background-color: rgba(0,0,0,.6);
+    transition:width 800ms;    
     .left{
         width: 2.16rem;
         height: 100%;
-        float: left;
+        float: left; 
     }
     .right{ 
         width: 7.84rem;
@@ -506,6 +511,10 @@ export const CityContend = styled.div`
             clear:both;
         }
         ul{
+            .active{
+                background-color: #fff1e9;
+                color: #ff6743; 
+            }
             li{
                 float: left;
                 text-align: center;
@@ -518,6 +527,7 @@ export const CityContend = styled.div`
                 font-size: .32rem;
                 margin-right: .16rem;
                 margin-bottom: .16rem;
+                
             }
             li:nth-child(1){
                 background-color: #fff1e9;

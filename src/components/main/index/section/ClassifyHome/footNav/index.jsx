@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { Link } from "react-router-dom";
+import {withRouter} from "react-router-dom";
 import { FootNative } from "@/components/main/index/section/styled"
 const shou = require("../../../../../../imgs/shou.png");
 // const shouse = require("../../../../../../imgs/shou1.png");
@@ -11,48 +11,27 @@ class FoorNav extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-        url:[shou,ju,piao,mine],
-        name:["首页","剧院","票夹","我的"]
+      navList: [{ name: "首页", ico: shou, path: "/index" }, { name: "剧院", ico: ju, path: "/ju" }, { name: "票夹", ico: piao, path: "/piao" }, { name: "我的", ico: mine, path: "/my" }]
     };
   }
   render() {
     return (
       <FootNative>
-        <Link to={'/index'}>
-          <div className={'nav'}>
-            <div>
-              <img src={`${shou}`} alt="" />
+        {
+          this.state.navList.map((item, index) => (
+            <div key={index} className={'nav'} onClick={this.topath.bind(this,item)}>
+              <div>
+                <img src={`${item.ico}`} alt="" />
+              </div>
+              <p>{item.name}</p>
             </div>
-            <p>首页</p>
-          </div>
-        </Link>
-
-        <Link to={'/ju'}>
-          <div className={'nav'}>
-            <div>
-              <img src={`${ju}`} alt="" />
-            </div>
-            <p>剧院</p>
-          </div>
-        </Link>
-        <Link to={'piao'}>
-          <div className={'nav'}>
-            <div>
-              <img src={`${piao}`} alt="" />
-            </div>
-            <p>票夹</p>
-          </div>
-        </Link>
-        <Link to={'/mine'}>
-          <div className={'nav'}>
-            <div>
-              <img src={`${mine}`} alt="" />
-            </div>
-            <p>我的</p>
-          </div>
-        </Link>
+          ))
+        }
       </FootNative>
     );
   }
+  topath(item) {
+     return this.props.history.push(item.path)
+  }
 }
-export default FoorNav;
+export default withRouter(FoorNav);
